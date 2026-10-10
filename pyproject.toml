@@ -1,6 +1,6 @@
 [project]
 name = "base32-crockford-decoder"
-version = "0.1.0"
+version = "0.1.1"
 description = "Encodes and decodes integers and byte sequences using Douglas Crockford's Base32 variant designed for human transcription."
 requires-python = ">=3.10"
 dependencies = []
