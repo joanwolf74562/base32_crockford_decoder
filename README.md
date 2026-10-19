@@ -23,3 +23,10 @@ Trade-off made: only non-negative integers are supported. Crockford's spec allow
 - When `checksum=True`, the check symbol may be `*`, `~`, or `$` (for mod-37 values 32–36). These are outside the data alphabet, so a check digit is never confused with a data digit.
 - `decode_bytes` returns `b'\x00'` for a decoded zero, not `b''`, so the output length is stable.
 - Input is whitespace-trimmed before decoding; leading/trailing spaces are tolerated, embedded whitespace is not.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
